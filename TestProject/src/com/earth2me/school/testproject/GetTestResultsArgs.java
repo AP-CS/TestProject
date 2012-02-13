@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.earth2me.school.testproject;
 
 /**
