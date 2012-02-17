@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="build" default="default">
+	<property name="dir.bin" location="bin" />
+	<property name="dir.src" location="src" />
+	<property name="dir.global.src" location="../../Source" />
+	<property name="dir.precompiled" location="../../Precompiled" />
+	<property name="file.jar" location="${dir.precompiled}/${ant.project.name}.jar" />
+	<property name="file.manifest" location="manifest.mf" />
+	<property name="file.resource" location="scores.txt" />
+	
+	<target name="default" depends="dist,source" />
+
+	<target name="dist" depends="compile">
+		<jar destfile="${file.jar}" compress="true" basedir="${dir.bin}" manifest="${file.manifest}" />
+		<copy todir="${dir.precompiled}">
+			<fileset file="${file.resource}" />
+		</copy>
+	</target>
+
+	<target name="compile" depends="clean">
+		<javac destdir="${dir.bin}" srcdir="${dir.src}" includeantruntime="false" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${dir.bin}" />
+		<mkdir dir="${dir.bin}" />
+		<delete dir="${dir.global.src}" />
+		<mkdir dir="${dir.global.src}" />
+		<delete file="${file.jar}" />
+		<mkdir dir="${dir.precompiled}" />
+	</target>
+	
+	<target name="source" depends="clean">
+		<copy flatten="true" todir="${dir.global.src}" includeemptydirs="false">
+			<fileset dir="${dir.src}" />
+		</copy>
+		<copy todir="${dir.global.src}">
+			<fileset file="${file.resource}" />
+		</copy>
+	</target>
+</project>

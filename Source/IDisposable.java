@@ -6,7 +6,7 @@ package com.earth2me.school.testproject;
  * @category APCS
  * @version 1.0.0
  */
-interface IDisposable
+public interface IDisposable
 {
 	/**
 	 * Explicitly frees resources held by the object and its children. Renders

@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: com.earth2me.school.testproject.Main
+
+Name: com/earth2me/school/testproject
+Sealed: true
