@@ -1,5 +1,7 @@
 package com.earth2me.school.testproject;
 
+import java.io.IOException;
+
 /**
  * Encloses main entry point for application. Cannot be instantiated.
  * 
@@ -42,9 +44,10 @@ public final class Main
 	 */
 	private static void execute(IProgram program)
 	{
-		// Determine the (unqualified) type name of the program using reflection.
+		// Determine the (unqualified) type name of the program using
+		// reflection.
 		String programName = program.getClass().getSimpleName();
-		
+
 		// Run the program, and dispose of it when done.
 		Console.writeLine("Executing program: %s", programName);
 		try
@@ -55,6 +58,15 @@ public final class Main
 		{
 			Console.writeLine("Disposing program: %s", programName);
 			program.dispose();
+
+			try
+			{
+				Console.writeLine("Press [Enter] to exit.");
+				System.in.read();
+			}
+			catch (IOException ex)
+			{
+			}
 		}
 	}
 }

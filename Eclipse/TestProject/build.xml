@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="build" default="default">
+<project name="TestProject" default="default">
 	<property name="dir.bin" location="bin" />
 	<property name="dir.src" location="src" />
 	<property name="dir.global.src" location="../../Source" />
